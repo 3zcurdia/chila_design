@@ -25,6 +25,7 @@ module ChilaDesign
     config.middleware.use Rack::Deflater
     config.load_defaults 7.0
     config.active_job.queue_adapter = :sidekiq
+    config.active_record.primary_key = :uuid
     config.i18n.default_locale = :en
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
