@@ -7,9 +7,10 @@ ruby "3.1.2"
 
 gem "rails", "~> 7.0.3", ">= 7.0.3.1"
 
+gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
+gem "sidekiq", "~> 6.5"
 gem "sprockets-rails"
-gem "sqlite3", "~> 1.4"
 
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "cssbundling-rails"
@@ -18,6 +19,7 @@ gem "stimulus-rails"
 gem "turbo-rails"
 
 gem "jbuilder"
+gem "miro"
 gem "redis", "~> 4.0"
 # gem "kredis"
 # gem "bcrypt", "~> 3.1.7"
