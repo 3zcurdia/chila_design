@@ -1,11 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 formality:
-  name: Formality
   antithesis: informal
   thesis: formal
 
 sentiment:
-  name: Sentiment
   antithesis: sadness
   thesis: happyness

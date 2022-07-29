@@ -3,6 +3,5 @@
 class Quality < ApplicationRecord
   has_many :dimensions, dependent: :destroy
 
-  validates :name, :thesis, :antithesis, presence: true
-  validates :name, uniqueness: true
+  validates :thesis, :antithesis, presence: true
 end
