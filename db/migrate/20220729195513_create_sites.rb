@@ -4,7 +4,7 @@ class CreateSites < ActiveRecord::Migration[7.0]
 
     create_table :sites do |t|
       t.string :url, null: false
-      t.jsonb :data, default: {}
+      t.jsonb :data, null: false, default: {}
 
       t.timestamps
     end
