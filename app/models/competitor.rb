@@ -2,6 +2,6 @@
 
 class Competitor < ApplicationRecord
   belongs_to :business
-  has_attachment :logo
-  has_attachment :picture
+  has_many_attached :logo
+  has_many_attached :picture
 end

@@ -3,7 +3,11 @@
 require "test_helper"
 
 class BusinessTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def bussines
+    @bussines ||= businesses(:one)
+  end
+
+  test "mus be valid" do
+    assert_predicate bussines, :valid?
+  end
 end

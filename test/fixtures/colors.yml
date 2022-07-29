@@ -3,7 +3,9 @@
 red:
   name: red
   value: #A90000
+  type: Color
 
 blue:
   name: blue
   value: #0000A9
+  type: Color

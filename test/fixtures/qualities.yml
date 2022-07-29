@@ -2,8 +2,8 @@
 
 formality:
   name: Formality
-  thesis: formal
-  antithesis: informal
+  thesis: informal
+  antithesis: formal
 
 sentiment:
   name: Sentiment

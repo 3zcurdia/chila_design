@@ -2,6 +2,8 @@
 
 serif:
   name: Serif
+  type: "Font"
 
 sansserif:
   name: Sans Serif
+  type: Font

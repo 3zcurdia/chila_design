@@ -1,17 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  name: Lady Tacos de Canasta 
   industry: one
-  address: MyString
-  latitude: 9.99
-  longitude: 9.99
-  url: MyString
+  address: Reforma 222, CDMX
+  latitude: 19.999
+  longitude: -99.99
 
 two:
-  name: MyString
-  industry: two
-  address: MyString
-  latitude: 9.99
-  longitude: 9.99
-  url: MyString
+  name: Tacos El Califa
+  industry: one
+  url: https://elcalifa.com.mx
