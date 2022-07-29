@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ChilaDesign</title>
+    <title>chila.design</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,13 +11,6 @@
   </head>
 
   <body>
-    <%= render "navbar" %>
-    <section class="section main">
-      <%= render "notifications" %>
-      <div class="container">
-        <%= yield %>
-      </div>
-    </section>
-    <script src="https://kit.fontawesome.com/789ecfbec5.js" crossorigin="anonymous"></script>
+    <%= yield %>
   </body>
 </html>
