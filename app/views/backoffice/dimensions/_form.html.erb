@@ -1,0 +1,17 @@
+<%= form_with(model: [:backoffice, dimension]) do |form| %>
+  <% if dimension.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(dimension.errors.count, "error") %> prohibited this dimension from being saved:</h2>
+
+      <ul>
+        <% dimension.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control">
+    <%= form.submit class: "button is-link is-normal" %>
+  </div>
+<% end %>

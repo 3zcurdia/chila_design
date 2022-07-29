@@ -11,7 +11,28 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.submit %>
+  <div class="field">
+    <%= form.label :name, class: "label" %>
+    <div class="control">
+      <%= form.text_field :name, class: "input is-horizontal" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :antithesis, class: "label" %>
+    <div class="control">
+      <%= form.text_field :antithesis, class: "input is-horizontal" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :thesis, class: "label" %>
+    <div class="control">
+      <%= form.text_field :thesis, class: "input is-horizontal" %>
+    </div>
+  </div>
+
+  <div class="control">
+    <%= form.submit class: "button is-link is-normal" %>
   </div>
 <% end %>

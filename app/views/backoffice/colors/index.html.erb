@@ -1,12 +1,15 @@
 <h1 class="title">Colors</h1>
+<p class="subtitle">
+<%= link_to "New color", new_backoffice_color_path %>
+</p>
 
 <div id="colors">
   <% @colors.each do |color| %>
-    <%= render color %>
-    <p>
-      <%= link_to "Show this color", [:backoffice, color] %>
-    </p>
+    <%= link_to [:backoffice, color] do %>
+    <span class="tag" style="background-color: <%= color.value %>;">
+      <%= render color %>
+    </span>
+    <% end %>
   <% end %>
 </div>
 
-<%= link_to "New color", new_backoffice_color_path %>

@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @dimension %>
+
+<div>
+  <%= link_to "Edit this dimension", edit_backoffice_dimension_path(@dimension) %> |
+  <%= link_to "Back to dimensions", backoffice_dimensions_path %>
+
+  <%= button_to "Destroy this dimension", [:backoffice, @dimension], method: :delete %>
+</div>
