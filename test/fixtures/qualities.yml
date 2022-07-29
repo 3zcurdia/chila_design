@@ -2,10 +2,10 @@
 
 formality:
   name: Formality
-  thesis: informal
-  antithesis: formal
+  antithesis: informal
+  thesis: formal
 
 sentiment:
   name: Sentiment
-  thesis: sadness
-  antithesis: happyness
+  antithesis: sadness
+  thesis: happyness
