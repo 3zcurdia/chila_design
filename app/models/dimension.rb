@@ -5,4 +5,6 @@ class Dimension < ApplicationRecord
   belongs_to :quality
 
   validates :value, presence: true, numericality: true
+
+  delegate :name, :thesis, :antithesis, to: :quality, prefix: true, allow_nil: true
 end

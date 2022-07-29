@@ -1,3 +1,4 @@
 <div id="<%= dom_id font %>"class="content">
   <p class="subtitle is-3">><%= font.name %></p>
+  <%= turbo_frame_tag :dimensions, src: backoffice_dimensions_path(dimensionable_id: font.id) %>
 </div>

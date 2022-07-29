@@ -2,22 +2,24 @@
 
 module Backoffice
   class DimensionsController < ApplicationController
+    before_action :set_dimensionale
     before_action :set_dimension, only: %i[show edit update destroy]
 
     def index
-      @dimensions = Dimension.all
+      @dimensions = Dimension.includes(:quality).where(dimensionable: @dimensionable)
     end
 
     def show; end
 
     def new
-      @dimension = Dimension.new
+      @dimension = Dimension.new(dimensionable: @dimensionable)
     end
 
     def edit; end
 
     def create
       @dimension = Dimension.new(dimension_params)
+      @dimension.dimensionable = @dimensionable
 
       respond_to do |format|
         if @dimension.save
@@ -58,11 +60,15 @@ module Backoffice
     private
 
     def set_dimension
-      @dimension = Dimension.find(params[:id])
+      @dimension = @dimensionable.dimensions.find(params[:id])
     end
 
     def dimension_params
-      params.require(:dimension).permit()
+      params.require(:dimension).permit
+    end
+
+    def set_dimensionale
+      @dimensionable = Asset.find(params[:dimensionable_id])
     end
   end
 end

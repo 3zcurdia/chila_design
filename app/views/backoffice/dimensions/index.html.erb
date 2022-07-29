@@ -2,6 +2,7 @@
 
 <h1>Dimensions</h1>
 
+<%= turbo_frame_tag :dimensions do %>
 <div id="dimensions">
   <% @dimensions.each do |dimension| %>
     <%= render dimension %>
@@ -10,5 +11,6 @@
     </p>
   <% end %>
 </div>
+<% end %>
 
 <%= link_to "New dimension", new_backoffice_dimension_path %>
