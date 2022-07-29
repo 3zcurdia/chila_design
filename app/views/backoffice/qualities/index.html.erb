@@ -1,0 +1,12 @@
+<h1 class="title">Qualities</h1>
+
+<div id="qualities">
+  <% @qualities.each do |quality| %>
+    <%= render quality %>
+    <p>
+      <%= link_to "Show this quality", [:backoffice, quality] %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New quality", new_backoffice_quality_path %>

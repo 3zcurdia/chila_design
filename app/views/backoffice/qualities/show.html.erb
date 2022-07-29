@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @quality %>
+
+<div>
+  <%= link_to "Edit this quality", edit_backoffice_quality_path(@quality) %> |
+  <%= link_to "Back to qualities", backoffice_qualities_path %>
+
+  <%= button_to "Destroy this quality", [:backoffice, @quality], method: :delete %>
+</div>

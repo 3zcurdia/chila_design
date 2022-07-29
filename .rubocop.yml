@@ -41,3 +41,10 @@ Metrics/BlockLength:
     - config/initializers/devise.rb
     - config/routes.rb
     - lib/tasks/*.rake
+
+Metrics/MethodLength:
+  Exclude:
+    - app/models/concerns/vectorizable.rb
+
+Rails/I18nLocaleTexts:
+  Enabled: false

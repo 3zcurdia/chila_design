@@ -11,6 +11,18 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "navbar" %>
+    <section class="section main">
+      <%= render "notifications" %>
+      <div class="container">
+        <%= yield %>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p class="content">chila.design 2022</p>
+      </div>
+    </footer>
+    <script src="https://kit.fontawesome.com/789ecfbec5.js" crossorigin="anonymous"></script>
   </body>
 </html>

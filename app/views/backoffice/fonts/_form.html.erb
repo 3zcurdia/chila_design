@@ -1,0 +1,17 @@
+<%= form_with(model: [:backoffice, font]) do |form| %>
+  <% if font.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(font.errors.count, "error") %> prohibited this font from being saved:</h2>
+
+      <ul>
+        <% font.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

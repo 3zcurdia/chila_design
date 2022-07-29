@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @color %>
+
+<div>
+  <%= link_to "Edit this color", edit_backoffice_color_path(@color) %> |
+  <%= link_to "Back to colors", backoffice_colors_path %>
+
+  <%= button_to "Destroy this color", [:backoffice, @color], method: :delete %>
+</div>

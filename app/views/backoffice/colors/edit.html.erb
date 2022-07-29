@@ -1,0 +1,10 @@
+<h1>Editing color</h1>
+
+<%= render "form", color: @color %>
+
+<br>
+
+<div>
+  <%= link_to "Show this color", [:backoffice, @color] %> |
+  <%= link_to "Back to colors", backoffice_colors_path %>
+</div>

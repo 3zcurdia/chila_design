@@ -1,0 +1,12 @@
+<% if flash[:notice].present? %>
+  <div class="notification is-primary is-light" data-controller="notification">
+    <button class="delete" data-action="click->notification#dismiss"></button>
+    <%= notice %>
+  </div>
+<% end %>
+<% if flash[:alert].present? %>
+  <div class="notification is-warning is-light" data-controller="notification">
+    <button class="delete" data-action="click->notification#dismiss"></button>
+    <%= alert %>
+  </div>
+<% end %>

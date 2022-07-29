@@ -1,0 +1,25 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a href="/">Chila</a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMain">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarMain" class="navbar-menu">
+    <div class="navbar-start">
+      <%= link_to "Qualities", backoffice_qualities_path, class: "navbar-item" %>
+      <%= link_to "Colors", backoffice_colors_path, class: "navbar-item" %>
+      <%= link_to "Fonts", backoffice_fonts_path, class: "navbar-item" %>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <span>+/-</span>
+      </div>
+    </div>
+  </div>
+</nav>
