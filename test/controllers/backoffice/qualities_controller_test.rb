@@ -19,7 +19,7 @@ class Backoffice::QualitiesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create quality" do
     assert_difference("Quality.count") do
-      params = { quality: { name: "Stren", antithesis: "weak", thesis: "strong" } }
+      params = { quality: { thesis: "soft", antithesis: "strong" } }
       post backoffice_qualities_url, params: params
     end
 
@@ -37,7 +37,7 @@ class Backoffice::QualitiesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update quality" do
-    params = { quality: { name: "Strenth" } }
+    params = { quality: { thesis: "strong", antithesis: "soft" } }
     patch backoffice_quality_url(@quality), params: params
     assert_redirected_to backoffice_quality_url(@quality)
   end

@@ -58,7 +58,7 @@ module Backoffice
     end
 
     def quality_params
-      params.require(:quality).permit(:name, :antithesis, :thesis)
+      params.require(:quality).permit(:antithesis, :thesis)
     end
   end
 end
