@@ -20,6 +20,7 @@ gem "turbo-rails"
 
 gem "jbuilder"
 # gem "miro" # TODO: replace code due deprecation and module override
+gem "faraday"
 gem "redis", "~> 4.0"
 # gem "kredis"
 # gem "bcrypt", "~> 3.1.7"
