@@ -18,16 +18,15 @@ gem "jsbundling-rails"
 gem "stimulus-rails"
 gem "turbo-rails"
 
+gem "aws-sdk-s3", require: false
+gem "bcrypt", "~> 3.1.7"
+gem "bootsnap", require: false
 gem "chunky_png"
 gem "faraday"
+gem "image_processing"
 gem "jbuilder"
 gem "redis", "~> 4.0"
 gem "terrapin"
-# gem "kredis"
-gem "bcrypt", "~> 3.1.7"
-gem "bootsnap", require: false
-# gem "sassc-rails"
-# gem "image_processing", "~> 1.2"
 
 group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
@@ -38,7 +37,6 @@ end
 
 group :development do
   gem "web-console"
-  # gem "rack-mini-profiler"
 end
 
 group :test do
