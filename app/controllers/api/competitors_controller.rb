@@ -57,6 +57,6 @@ class Api::CompetitorsController < ApplicationController
     end
 
     def competitor_params
-      params.permit(:business_id, :name, site_attributes: [:url])
+      params.permit(:business_id, :name, :picture, :logo, site_attributes: [:url])
     end
 end
