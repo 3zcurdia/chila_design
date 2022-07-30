@@ -18,10 +18,11 @@ gem "jsbundling-rails"
 gem "stimulus-rails"
 gem "turbo-rails"
 
-gem "jbuilder"
-# gem "miro" # TODO: replace code due deprecation and module override
+gem "chunky_png"
 gem "faraday"
+gem "jbuilder"
 gem "redis", "~> 4.0"
+gem "terrapin"
 # gem "kredis"
 gem "bcrypt", "~> 3.1.7"
 gem "bootsnap", require: false
