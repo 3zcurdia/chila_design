@@ -23,7 +23,7 @@ gem "jbuilder"
 gem "faraday"
 gem "redis", "~> 4.0"
 # gem "kredis"
-# gem "bcrypt", "~> 3.1.7"
+gem "bcrypt", "~> 3.1.7"
 gem "bootsnap", require: false
 # gem "sassc-rails"
 # gem "image_processing", "~> 1.2"
