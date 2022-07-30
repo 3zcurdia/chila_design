@@ -2,9 +2,11 @@
 
 Rails.application.routes.draw do
   namespace :api do
-    resources :users
-    resources :competitors
-    resources :businesses
+    resources :users, only: [:create]
+    resources :businesses, only: [:show, :create, :update]
+    resources :competitors, only: [:create]
+    resources :qualities, only: [:index]
+    resources :dimensions, only: [:create]
   end
   namespace :backoffice do
     resources :dimensions
