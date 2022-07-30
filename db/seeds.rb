@@ -8,6 +8,16 @@
 
 require 'csv'
 
+[
+  {thesis: "Professional", antithesis: "Casual"},
+  {thesis: "Fun", antithesis: "Informative"},
+  {thesis: "Enthusiastic", antithesis: "Serious"},
+  {thesis: "Upbeat", antithesis: "Calm"},
+  {thesis: "Nostalgic", antithesis: "Modern"},
+].each do |quality|
+  Quality.find_or_create_by(quality)
+end
+
 CSV.open(Rails.root.join("config/pantones.csv"), headers: true).each do |row|
   Color.find_or_create_by(name: row["name"]) do |col|
     col.value = row["hex"]
