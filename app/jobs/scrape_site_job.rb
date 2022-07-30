@@ -6,6 +6,9 @@ class ScrapeSiteJob < ApplicationJob
   def perform(site)
     res = conn.get("/query") { |req| req.params["url"] = site.url }
     site.update!(data: res.body)
+    site.competitors.find_each do |competitor|
+      Competitors::SetSiteAnalysisJob.perform_later(competitor, site)
+    end
   end
 
   private

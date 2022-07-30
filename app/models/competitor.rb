@@ -12,5 +12,7 @@ class Competitor < ApplicationRecord
     attachable.variant :thumb, resize_to_limit: [150, 150]
   end
 
+  store :data, accessors: %i[site screenshot logo picture], coder: JSON
+
   delegate :url, :data, to: :site, prefix: true, allow_nil: true
 end

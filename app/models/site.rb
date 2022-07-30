@@ -12,6 +12,16 @@ class Site < ApplicationRecord
 
   after_create :scrape_site, if: -> { url_changed? || data.blank? }
 
+  def analysis
+    {
+      sentiment: sentiment,
+      colors: colors,
+      typographies: typographies,
+      background_colors: background_colors,
+      text_colors: text_colors
+    }
+  end
+
   def sentiment
     return @sentiment if defined?(@sentiment)
 
