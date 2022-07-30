@@ -1,19 +1,19 @@
+# frozen_string_literal: true
+
 class BusinessesController < ApplicationController
-  before_action :set_api_business, only: %i[ show edit update destroy ]
+  before_action :set_business, only: %i[show edit update destroy]
 
   def index
     @businesses = Business.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @business = Business.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @business = business_params.any? ? Business.new(business_params) : Business.autogenerate
@@ -51,11 +51,12 @@ class BusinessesController < ApplicationController
   end
 
   private
-    def set_api_business
-      @business = Business.find(params[:id])
-    end
 
-    def business_params
-      params.permit(:name)
-    end
+  def set_business
+    @business = Business.find(params[:id])
+  end
+
+  def business_params
+    params.permit(:name)
+  end
 end

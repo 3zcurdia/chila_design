@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class Api::QualitiesControllerTest < ActionDispatch::IntegrationTest
@@ -17,7 +19,7 @@ class Api::QualitiesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create api_quality" do
     assert_difference("Api::Quality.count") do
-      post api_qualities_url, params: { api_quality: {  } }
+      post api_qualities_url, params: { api_quality: {} }
     end
 
     assert_redirected_to api_quality_url(Api::Quality.last)
@@ -34,7 +36,7 @@ class Api::QualitiesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update api_quality" do
-    patch api_quality_url(@quality), params: { api_quality: {  } }
+    patch api_quality_url(@quality), params: { api_quality: {} }
     assert_redirected_to api_quality_url(@quality)
   end
 

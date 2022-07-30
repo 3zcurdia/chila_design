@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class Api::CompetitorsControllerTest < ActionDispatch::IntegrationTest
@@ -17,7 +19,7 @@ class Api::CompetitorsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create api_competitor" do
     assert_difference("Api::Competitor.count") do
-      post api_competitors_url, params: { api_competitor: {  } }
+      post api_competitors_url, params: { api_competitor: {} }
     end
 
     assert_redirected_to api_competitor_url(Api::Competitor.last)
@@ -34,7 +36,7 @@ class Api::CompetitorsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update api_competitor" do
-    patch api_competitor_url(@competitor), params: { api_competitor: {  } }
+    patch api_competitor_url(@competitor), params: { api_competitor: {} }
     assert_redirected_to api_competitor_url(@competitor)
   end
 

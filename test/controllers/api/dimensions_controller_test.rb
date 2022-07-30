@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class Api::DimensionsControllerTest < ActionDispatch::IntegrationTest
@@ -17,7 +19,7 @@ class Api::DimensionsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create api_dimension" do
     assert_difference("Api::Dimension.count") do
-      post api_dimensions_url, params: { api_dimension: {  } }
+      post api_dimensions_url, params: { api_dimension: {} }
     end
 
     assert_redirected_to api_dimension_url(Api::Dimension.last)
@@ -34,7 +36,7 @@ class Api::DimensionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update api_dimension" do
-    patch api_dimension_url(@dimension), params: { api_dimension: {  } }
+    patch api_dimension_url(@dimension), params: { api_dimension: {} }
     assert_redirected_to api_dimension_url(@dimension)
   end
 

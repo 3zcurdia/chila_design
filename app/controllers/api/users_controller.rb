@@ -1,56 +1,58 @@
-class Api::UsersController < ApplicationController
-  before_action -> { @business = Business.find_by(id: params[:business_id]).presence || Business.last }
-  before_action :set_user, only: %i[ show edit update destroy ]
+# frozen_string_literal: true
 
-  def index
-    @users = User.all
-  end
+module Api
+  class UsersController < ApplicationController
+    before_action -> { @business = Business.find_by(id: params[:business_id]).presence || Business.last }
+    before_action :set_user, only: %i[show edit update destroy]
 
-  def show
-  end
+    def index
+      @users = User.all
+    end
 
-  def new
-    @user = User.new
-  end
+    def show; end
 
-  def edit
-  end
+    def new
+      @user = User.new
+    end
 
-  def create
-    respond_to do |format|
-      if @user = User.create_passwordless(user_params)
-        @business.update(user: @user)
-        format.html { redirect_to api_user_url(@user), notice: "User was successfully created." }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+    def edit; end
+
+    def create
+      respond_to do |format|
+        if @user = User.create_passwordless(user_params)
+          @business.update(user: @user)
+          format.html { redirect_to api_user_url(@user), notice: "User was successfully created." }
+          format.json { render :show, status: :created, location: @user }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
       end
     end
-  end
 
-  def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to api_user_url(@user), notice: "User was successfully updated." }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+    def update
+      respond_to do |format|
+        if @user.update(user_params)
+          format.html { redirect_to api_user_url(@user), notice: "User was successfully updated." }
+          format.json { render :show, status: :ok, location: @user }
+        else
+          format.html { render :edit, status: :unprocessable_entity }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
       end
     end
-  end
 
-  def destroy
-    @user.destroy
+    def destroy
+      @user.destroy
 
-    respond_to do |format|
-      format.html { redirect_to api_users_url, notice: "User was successfully destroyed." }
-      format.json { head :no_content }
+      respond_to do |format|
+        format.html { redirect_to api_users_url, notice: "User was successfully destroyed." }
+        format.json { head :no_content }
+      end
     end
-  end
 
-  private
+    private
+
     def set_user
       @user = User.find(params[:id])
     end
@@ -58,4 +60,5 @@ class Api::UsersController < ApplicationController
     def user_params
       params.permit(:email)
     end
+  end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class Api::BusinessesControllerTest < ActionDispatch::IntegrationTest
@@ -17,7 +19,7 @@ class Api::BusinessesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create api_business" do
     assert_difference("Api::Business.count") do
-      post api_businesses_url, params: { api_business: {  } }
+      post api_businesses_url, params: { api_business: {} }
     end
 
     assert_redirected_to api_business_url(Api::Business.last)
@@ -34,7 +36,7 @@ class Api::BusinessesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update api_business" do
-    patch api_business_url(@business), params: { api_business: {  } }
+    patch api_business_url(@business), params: { api_business: {} }
     assert_redirected_to api_business_url(@business)
   end
 

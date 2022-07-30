@@ -1,63 +1,69 @@
-class Api::DimensionsController < ApplicationController
-  before_action -> { @business = Business.find_by(id: params[:business_id]).presence || Business.last }
-  before_action -> { params.merge(dimensionable_type: "Business", dimensionable_id: params[:business_id].presence || Business.last.id) }
-  before_action :set_dimension, only: %i[ show edit update destroy ]
+# frozen_string_literal: true
 
-  def index
-    @dimensions = Dimension.where(dimensionable: @business)
-  end
+module Api
+  class DimensionsController < ApplicationController
+    before_action -> { @business = Business.find_by(id: params[:business_id]).presence || Business.last }
+    before_action lambda {
+                    params.merge(dimensionable_type: "Business",
+                                 dimensionable_id: params[:business_id].presence || Business.last.id)
+                  }
+    before_action :set_dimension, only: %i[show edit update destroy]
 
-  def show
-  end
+    def index
+      @dimensions = Dimension.where(dimensionable: @business)
+    end
 
-  def new
-    @dimension = Dimension.new(dimensionable: @business)
-  end
+    def show; end
 
-  def edit
-  end
+    def new
+      @dimension = Dimension.new(dimensionable: @business)
+    end
 
-  def create
-    @dimension = Dimension.new(dimension_params)
+    def edit; end
 
-    respond_to do |format|
-      if @dimension.save
-        format.html { redirect_to api_dimension_url(@dimension), notice: "Dimension was successfully created." }
-        format.json { render :show, status: :created, location: @dimension }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @dimension.errors, status: :unprocessable_entity }
+    def create
+      @dimension = Dimension.new(dimension_params)
+
+      respond_to do |format|
+        if @dimension.save
+          format.html { redirect_to api_dimension_url(@dimension), notice: "Dimension was successfully created." }
+          format.json { render :show, status: :created, location: @dimension }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @dimension.errors, status: :unprocessable_entity }
+        end
       end
     end
-  end
 
-  def update
-    respond_to do |format|
-      if @dimension.update(dimension_params)
-        format.html { redirect_to api_dimension_url(@dimension), notice: "Dimension was successfully updated." }
-        format.json { render :show, status: :ok, location: @dimension }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @dimension.errors, status: :unprocessable_entity }
+    def update
+      respond_to do |format|
+        if @dimension.update(dimension_params)
+          format.html { redirect_to api_dimension_url(@dimension), notice: "Dimension was successfully updated." }
+          format.json { render :show, status: :ok, location: @dimension }
+        else
+          format.html { render :edit, status: :unprocessable_entity }
+          format.json { render json: @dimension.errors, status: :unprocessable_entity }
+        end
       end
     end
-  end
 
-  def destroy
-    @dimension.destroy
+    def destroy
+      @dimension.destroy
 
-    respond_to do |format|
-      format.html { redirect_to api_dimensions_url, notice: "Dimension was successfully destroyed." }
-      format.json { head :no_content }
+      respond_to do |format|
+        format.html { redirect_to api_dimensions_url, notice: "Dimension was successfully destroyed." }
+        format.json { head :no_content }
+      end
     end
-  end
 
-  private
+    private
+
     def set_dimension
       @dimension = Dimension.find(params[:id])
     end
 
     def dimension_params
-      params.permit(:dimensionable_type, :dimensionable_id, :quality_id, :value")
+      params.permit(:dimensionable_type, :dimensionable_id, :quality_id, :value)
     end
+  end
 end

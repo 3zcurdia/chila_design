@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class Api::UsersControllerTest < ActionDispatch::IntegrationTest
@@ -17,7 +19,7 @@ class Api::UsersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create api_user" do
     assert_difference("Api::User.count") do
-      post api_users_url, params: { api_user: {  } }
+      post api_users_url, params: { api_user: {} }
     end
 
     assert_redirected_to api_user_url(Api::User.last)
@@ -34,7 +36,7 @@ class Api::UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update api_user" do
-    patch api_user_url(@user), params: { api_user: {  } }
+    patch api_user_url(@user), params: { api_user: {} }
     assert_redirected_to api_user_url(@user)
   end
 

@@ -1,61 +1,64 @@
-class Api::QualitiesController < ApplicationController
-  before_action :set_quality, only: %i[ show edit update destroy ]
+# frozen_string_literal: true
 
-  def index
-    @qualities = Quality.all
-  end
+module Api
+  class QualitiesController < ApplicationController
+    before_action :set_quality, only: %i[show edit update destroy]
 
-  def show
-  end
+    def index
+      @qualities = Quality.all
+    end
 
-  def new
-    @quality = Quality.new
-  end
+    def show; end
 
-  def edit
-  end
+    def new
+      @quality = Quality.new
+    end
 
-  def create
-    @quality = Quality.new(quality_params)
+    def edit; end
 
-    respond_to do |format|
-      if @quality.save
-        format.html { redirect_to api_quality_url(@quality), notice: "Quality was successfully created." }
-        format.json { render :show, status: :created, location: @quality }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @quality.errors, status: :unprocessable_entity }
+    def create
+      @quality = Quality.new(quality_params)
+
+      respond_to do |format|
+        if @quality.save
+          format.html { redirect_to api_quality_url(@quality), notice: "Quality was successfully created." }
+          format.json { render :show, status: :created, location: @quality }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @quality.errors, status: :unprocessable_entity }
+        end
       end
     end
-  end
 
-  def update
-    respond_to do |format|
-      if @quality.update(quality_params)
-        format.html { redirect_to api_quality_url(@quality), notice: "Quality was successfully updated." }
-        format.json { render :show, status: :ok, location: @quality }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @quality.errors, status: :unprocessable_entity }
+    def update
+      respond_to do |format|
+        if @quality.update(quality_params)
+          format.html { redirect_to api_quality_url(@quality), notice: "Quality was successfully updated." }
+          format.json { render :show, status: :ok, location: @quality }
+        else
+          format.html { render :edit, status: :unprocessable_entity }
+          format.json { render json: @quality.errors, status: :unprocessable_entity }
+        end
       end
     end
-  end
 
-  def destroy
-    @quality.destroy
+    def destroy
+      @quality.destroy
 
-    respond_to do |format|
-      format.html { redirect_to api_qualities_url, notice: "Quality was successfully destroyed." }
-      format.json { head :no_content }
+      respond_to do |format|
+        format.html { redirect_to api_qualities_url, notice: "Quality was successfully destroyed." }
+        format.json { head :no_content }
+      end
     end
-  end
 
-  private
-  def set_quality
-    @quality = Quality.find(params[:id])
-  end
+    private
 
-  def quality_params
-    params.permit(:thesis, :antithesis)
+    def set_quality
+      @quality = Quality.find(params[:id])
+    end
+
+    def quality_params
+      params.permit(:thesis, :antithesis)
+    end
   end
 end
