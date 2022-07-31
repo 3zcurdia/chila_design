@@ -8,6 +8,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "must be valid" do
+    user.password = "123456"
     assert_predicate user, :valid?
   end
 end
