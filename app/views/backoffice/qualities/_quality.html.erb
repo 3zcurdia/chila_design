@@ -1,9 +1,13 @@
 <div id="<%= dom_id quality %>">
-  <span class="tag is-link">
-    <%= quality.antithesis%>
-  </span>
-  <progress class="progress" value="5" min="0" max="10">5</progress>
-  <span class="tag is-primary">
-    <%= quality.thesis %>
-  </span>
+    <div class="columns">
+      <div class="column">
+        <span class="tag is-pulled-right"><%= quality.antithesis%></span>
+      </div>
+      <div class="column">
+        <progress class="progress" value="5" min="0" max="10"></progress>
+      </div>
+      <div class="column">
+        <span class="tag"><%= quality.thesis %></span>
+      </div>
+    </div>
 </div>
