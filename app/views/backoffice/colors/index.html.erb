@@ -4,12 +4,6 @@
 </p>
 
 <div id="colors">
-  <% @colors.each do |color| %>
-    <%= link_to [:backoffice, color] do %>
-    <span class="tag" style="background-color: <%= color.value %>;">
-      <%= render color %>
-    </span>
-    <% end %>
-  <% end %>
+  <%= render @colors, partial: "/api/colors/color", as: :color %>
 </div>
 

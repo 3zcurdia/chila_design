@@ -1,16 +1,12 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Dimensions</h1>
+<h1 class="title">Dimensions</h1>
+<p class="subtitle">
+  <%= link_to "New dimension", new_backoffice_dimension_path %>
+</p>
 
 <%= turbo_frame_tag :dimensions do %>
 <div id="dimensions">
   <% @dimensions.each do |dimension| %>
     <%= render dimension %>
-    <p>
-      <%= link_to "Show this dimension", [:backoffice, dimension] %>
-    </p>
   <% end %>
 </div>
 <% end %>
-
-<%= link_to "New dimension", new_backoffice_dimension_path %>

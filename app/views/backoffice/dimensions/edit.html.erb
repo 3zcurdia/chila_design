@@ -1,6 +1,8 @@
 <h1>Editing dimension</h1>
 
-<%= render "form", dimension: @dimension %>
+<%= turbo_frame_tag :dimension do %>
+  <%= render "form", dimension: @dimension %>
+<% end %>
 
 <br>
 

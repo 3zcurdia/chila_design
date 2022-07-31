@@ -1,4 +1,10 @@
 <div id="<%= dom_id color %>" class="content">
-  <p class="subtitle is-3"><%= color.name %></p>
+  <div class="title is-3">
+    <%= color.name %>
+    <div style="background-color:<%= color.value %>; min-height:50px; min-width:50px;"></div>
+  </div>
+  <p class="subtitle is-5">
+    <%= link_to "", backoffice_colors_path %>
+  </p>
   <%= turbo_frame_tag :dimensions, src: backoffice_dimensions_path(dimensionable_id: color.id) %>
 </div>

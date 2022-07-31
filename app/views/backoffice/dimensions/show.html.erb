@@ -1,6 +1,6 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @dimension %>
+<%= turbo_frame_tag :dimension do %>
+  <%= render @dimension %>
+<% end %>
 
 <div>
   <%= link_to "Edit this dimension", edit_backoffice_dimension_path(@dimension) %> |

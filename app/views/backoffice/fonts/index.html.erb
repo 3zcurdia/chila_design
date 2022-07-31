@@ -1,12 +1,11 @@
 <h1 class="title">Fonts</h1>
+<p class="subtitle">
+  <%= link_to "New font", new_backoffice_font_path %>
+<p>
 
 <div id="fonts">
   <% @fonts.each do |font| %>
     <%= render font %>
-    <p>
-      <%= link_to "Show this font", [:backoffice, font] %>
-    </p>
   <% end %>
 </div>
 
-<%= link_to "New font", new_backoffice_font_path %>

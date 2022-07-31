@@ -60,15 +60,15 @@ module Backoffice
     private
 
     def set_dimension
-      @dimension = @dimensionable.dimensions.find(params[:id])
+      @dimension = Dimension.find(params[:id])
     end
 
     def dimension_params
-      params.require(:dimension).permit
+      params.require(:dimension).permit(:quality_id, :value)
     end
 
     def set_dimensionale
-      @dimensionable = Asset.find(params[:dimensionable_id])
+      @dimensionable = Asset.find(params[:dimensionable_id]) if params[:dimensionable_id].present?
     end
   end
 end

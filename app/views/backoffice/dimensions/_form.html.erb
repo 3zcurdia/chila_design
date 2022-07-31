@@ -11,7 +11,19 @@
     </div>
   <% end %>
 
+  <div class="columns">
+    <div class="column">
+      <span class="tag is-pulled-right"><%= dimension.quality.antithesis %></span>
+    </div>
+    <div class="column">
+        <%= form.number_field :value, class: "input is-horizontal" %>
+    </div>
+    <div class="column">
+      <span class="tag"><%= dimension.quality.thesis %></span>
+    </div>
+  </div>
+
   <div class="control">
-    <%= form.submit class: "button is-link is-normal" %>
+    <%= form.submit class: "button is-link is-outline" %>
   </div>
 <% end %>

@@ -1,10 +1,16 @@
 <div id="<%= dom_id dimension %>">
-  <%= turbo_frame_tag :dimesion do %>
-    <p><%= dimension.quality_name %></p>
-    <div>
-      <span class="tag is-link"><%= quality.antithesis%></span>
-      <progress class="progress" value="<%= dimesion.value %>" min="0" max="10"><%= dimesion.value %></progress>
-      <span class="tag is-primary"><%= quality.thesis %></span>
+  <%= turbo_frame_tag :dimension do %>
+    <div class="columns">
+      <div class="column">
+        <span class="tag is-pulled-right"><%= dimension.quality.antithesis%></span>
+      </div>
+      <div class="column">
+        <progress class="progress" value="<%= dimension.value %>" min="0" max="10"><%= dimension.value %></progress>
+        <p><%= link_to "Edit", edit_backoffice_dimension_path(dimension, dimensionable_id: dimension.dimensionable_id) %></p>
+      </div>
+      <div class="column">
+        <span class="tag"><%= dimension.quality.thesis %></span>
+      </div>
     </div>
   <% end %>
 </div>
