@@ -3,10 +3,6 @@
 module Api
   class DimensionsController < ApplicationController
     before_action -> { @business = Business.find_by(id: params[:business_id]).presence || Business.last }
-    before_action lambda {
-                    params.merge(dimensionable_type: "Business",
-                                 dimensionable_id: params[:business_id].presence || Business.last.id)
-                  }
     before_action :set_dimension, only: %i[show edit update destroy]
 
     def index
@@ -22,7 +18,8 @@ module Api
     def edit; end
 
     def create
-      @dimension = Dimension.new_list(params.permit!)
+      @dimension = Dimension.new(dimension_params)
+      @dimension.dimensionable = @business
 
       respond_to do |format|
         if @dimension.save

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :businesses, only: %i[show create update]
     resources :competitors, only: %i[show create update]
     resources :qualities, only: [:index]
-    resources :dimensions, only: [:create]
+    resources :dimensions, only: %i[index create]
   end
   namespace :backoffice do
     resources :dimensions
