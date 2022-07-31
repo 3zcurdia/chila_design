@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :users, only: [:create]
     resources :businesses, only: %i[show create update]
-    resources :competitors, only: [:create]
+    resources :competitors, only: %i[show create update]
     resources :qualities, only: [:index]
     resources :dimensions, only: [:create]
   end

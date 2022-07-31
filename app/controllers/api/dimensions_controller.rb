@@ -22,7 +22,7 @@ module Api
     def edit; end
 
     def create
-      @dimension = Dimension.new(dimension_params)
+      @dimension = Dimension.new_list(params.permit!)
 
       respond_to do |format|
         if @dimension.save
@@ -63,7 +63,7 @@ module Api
     end
 
     def dimension_params
-      params.permit(:dimensionable_type, :dimensionable_id, :quality_id, :value)
+      params.permit(:quality_id, :value)
     end
   end
 end

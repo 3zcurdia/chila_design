@@ -5,7 +5,7 @@ module Competitors
     queue_as :default
 
     def perform(competitor, site)
-      competitor.update!(site: site.analysis)
+      competitor.update!(site_analysis: site.analysis)
     end
   end
 end
