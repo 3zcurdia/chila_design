@@ -22,7 +22,7 @@ module Api
       respond_to do |format|
         if @quality.save
           format.html { redirect_to api_quality_url(@quality), notice: "Quality was successfully created." }
-          format.json { render :show, status: :created, location: @quality }
+          format.json { render :show, status: :created }
         else
           format.html { render :new, status: :unprocessable_entity }
           format.json { render json: @quality.errors, status: :unprocessable_entity }
@@ -34,7 +34,7 @@ module Api
       respond_to do |format|
         if @quality.update(quality_params)
           format.html { redirect_to api_quality_url(@quality), notice: "Quality was successfully updated." }
-          format.json { render :show, status: :ok, location: @quality }
+          format.json { render :show, status: :ok }
         else
           format.html { render :edit, status: :unprocessable_entity }
           format.json { render json: @quality.errors, status: :unprocessable_entity }

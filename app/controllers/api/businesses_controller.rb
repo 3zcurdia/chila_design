@@ -17,12 +17,12 @@ module Api
     def edit; end
 
     def create
-      @business = business_params.any? ? Business.new(business_params) : Business.autogenerate
+      @business = business_params.empty? ? Business.autogenerate : Business.new(business_params)
 
       respond_to do |format|
         if @business.save
           format.html { redirect_to api_business_url(@business), notice: "Business was successfully created." }
-          format.json { render :show, status: :created, location: @business }
+          format.json { render :show, status: :created }
         else
           format.html { render :new, status: :unprocessable_entity }
           format.json { render json: @business.errors, status: :unprocessable_entity }
@@ -34,7 +34,7 @@ module Api
       respond_to do |format|
         if @business.update(business_params)
           format.html { redirect_to api_business_url(@business), notice: "Business was successfully updated." }
-          format.json { render :show, status: :ok, location: @business }
+          format.json { render :show, status: :ok }
         else
           format.html { render :edit, status: :unprocessable_entity }
           format.json { render json: @business.errors, status: :unprocessable_entity }

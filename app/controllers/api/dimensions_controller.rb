@@ -27,7 +27,7 @@ module Api
       respond_to do |format|
         if @dimension.save
           format.html { redirect_to api_dimension_url(@dimension), notice: "Dimension was successfully created." }
-          format.json { render :show, status: :created, location: @dimension }
+          format.json { render :show, status: :created }
         else
           format.html { render :new, status: :unprocessable_entity }
           format.json { render json: @dimension.errors, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ module Api
       respond_to do |format|
         if @dimension.update(dimension_params)
           format.html { redirect_to api_dimension_url(@dimension), notice: "Dimension was successfully updated." }
-          format.json { render :show, status: :ok, location: @dimension }
+          format.json { render :show, status: :ok }
         else
           format.html { render :edit, status: :unprocessable_entity }
           format.json { render json: @dimension.errors, status: :unprocessable_entity }

@@ -25,6 +25,7 @@ gem "chunky_png"
 gem "faraday"
 gem "image_processing"
 gem "jbuilder"
+gem "rack-cors"
 gem "redis", "~> 4.0"
 gem "terrapin"
 

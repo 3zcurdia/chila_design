@@ -22,7 +22,7 @@ module Api
         if @user = User.create_passwordless(user_params)
           @business.update(user: @user)
           format.html { redirect_to api_user_url(@user), notice: "User was successfully created." }
-          format.json { render :show, status: :created, location: @user }
+          format.json { render :show, status: :created }
         else
           format.html { render :new, status: :unprocessable_entity }
           format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -34,7 +34,7 @@ module Api
       respond_to do |format|
         if @user.update(user_params)
           format.html { redirect_to api_user_url(@user), notice: "User was successfully updated." }
-          format.json { render :show, status: :ok, location: @user }
+          format.json { render :show, status: :ok }
         else
           format.html { render :edit, status: :unprocessable_entity }
           format.json { render json: @user.errors, status: :unprocessable_entity }

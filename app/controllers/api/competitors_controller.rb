@@ -23,7 +23,7 @@ module Api
       respond_to do |format|
         if @competitor.save
           format.html { redirect_to api_competitor_url(@competitor), notice: "Competitor was successfully created." }
-          format.json { render :show, status: :created, location: @competitor }
+          format.json { render :show, status: :created }
         else
           format.html { render :new, status: :unprocessable_entity }
           format.json { render json: @competitor.errors, status: :unprocessable_entity }
@@ -35,7 +35,7 @@ module Api
       respond_to do |format|
         if @competitor.update(competitor_params)
           format.html { redirect_to api_competitor_url(@competitor), notice: "Competitor was successfully updated." }
-          format.json { render :show, status: :ok, location: @competitor }
+          format.json { render :show, status: :ok }
         else
           format.html { render :edit, status: :unprocessable_entity }
           format.json { render json: @competitor.errors, status: :unprocessable_entity }
