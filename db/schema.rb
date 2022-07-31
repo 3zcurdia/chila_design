@@ -10,8 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_30_042907) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_31_102027) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_trgm"
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -74,6 +76,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_30_042907) do
     t.index ["business_id"], name: "index_competitors_on_business_id"
   end
 
+  create_table "design_briefs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.bigint "business_id", null: false
+    t.jsonb "histograms", default: {}
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["business_id"], name: "index_design_briefs_on_business_id"
+    t.index ["histograms"], name: "index_design_briefs_on_histograms"
+  end
+
   create_table "dimensions", force: :cascade do |t|
     t.string "dimensionable_type", null: false
     t.bigint "dimensionable_id", null: false
@@ -116,5 +127,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_30_042907) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "competitors", "businesses"
+  add_foreign_key "design_briefs", "businesses"
   add_foreign_key "dimensions", "qualities"
 end
